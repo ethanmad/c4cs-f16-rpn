@@ -4,8 +4,8 @@ def calculate(args):
     stack = list()
     for token in args.split():
         if token == '+':
-            arg1 = stack.pop()
             arg2 = stack.pop()
+            arg1 = stack.pop()
             result = arg1 + arg2
             stack.append(result)
         elif token == '-':
@@ -16,6 +16,8 @@ def calculate(args):
         else:
             stack.append(int(token))
         print(stack)
+    if len(stack) != 1:
+        raise TypeError
     return stack.pop()
 
 def main():
